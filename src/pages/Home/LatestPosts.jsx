@@ -1,7 +1,7 @@
 import React from 'react';
 import lostDog from '../../assets/post-lost.png';
 import woundedPuppy from '../../assets/post-wounded.png';
-import adoptionCat from '../../assets/post-adoption.png';
+import adoptionCat from '../../assets/tanalCat.jpg';
 
 export default function LatestPosts() {
   const posts = [
