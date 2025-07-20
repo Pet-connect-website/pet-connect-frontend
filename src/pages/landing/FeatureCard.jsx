@@ -15,7 +15,7 @@ function FeatureCard({ title, description, icon }) {
       <img src={icon} alt={`${title} icon`} className="w-16 h-16 mx-auto mb-4 object-contain"/>
       <h3 className="text-xl font-semibold mb-3 text-gray-900">{title}</h3>
       <p className="text-gray-700 mb-6">{description}</p>
-      <a href="#" className="border  border-[#5B4033] text-[#5B4033] px-4 py-2 text-sm rounded-full font-semibold hover:bg-[#E67E22] hover:text-white transition duration-300">Explore more &gt;</a>
+      <a href="#" className="border border-[#5B4033] text-[#5B4033] px-4 py-2 text-sm rounded-full font-semibold transition duration-300 hover:text-white hover:bg-gradient-to-t hover:from-[#5B4033] hover:to-[#B27E57] hover:shadow-lg">Explore more &gt;</a>
     </article>
   );
 

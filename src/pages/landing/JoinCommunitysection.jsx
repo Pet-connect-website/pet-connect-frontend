@@ -10,7 +10,7 @@ const JoinCommunitySection = () => {
           <p className="text-lg md:text-xl mb-8 text-gray-700 max-w-xl mx-auto md:mx-0">
             Whether you're a pet lover, a rescuer, or just someone who cares—PetConnect welcomes you. Make a difference in the lives of animals and the people who love them.
           </p>
-          <a href="#" className="bg-[#5B4033] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#4A3428] transition duration-300 inline-block">Join us</a>
+          <a href="#" className="bg-gradient-to-t from-[#5B4033] to-[#B27E57]   hover:from-[#33231b] hover:to-[#8b6344] hover:shadow-lg text-white px-6 py-3 rounded-full font-semibold hover:bg-[#4A3428]  ">Join us</a>
         </div>
         <div className="md:w-1/2 flex justify-center md:justify-end">
           {/* Image - Replaced with provided image src */}
