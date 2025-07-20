@@ -2,8 +2,6 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 // import './App.css'
-
-
 // import Landing from './pages/landing/landing.jsx' 
 
 // function App() {

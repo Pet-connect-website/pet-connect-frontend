@@ -5,7 +5,7 @@ import isuruImg from '../../assets/isuru.png';
 
 export default function CommunitySection() {
   return (
-    <section className="py-10 px-4 text-center bg-[#d5c8bb]">
+    <section id="community" className="py-10 px-4 text-center bg-[#d5c8bb]">
       <h2 className="text-3xl font-bold mb-6">Community Engagement Section</h2>
       <div className="bg-[#f7eeea] max-w-3xl mx-auto p-6 rounded-3xl shadow-md text-left space-y-4">
         <div className="flex items-center gap-3">
