@@ -6,6 +6,7 @@ import CoreFeatures from './CoreFeatures';
 import TestimonialsSection from './TestimonialsSection';
 import JoinCommunitySection from './JoinCommunitysection';
 import Footer from './Footer';
+
 // Main App component
 const Landing = () => {
   return (

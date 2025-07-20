@@ -7,13 +7,13 @@ function HeroSection() {
         <div className="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-gray-900">
             Taking care<br/>
-            for your <span className="text-[#B27E57]">Smart</span><br/>
+            for your <span className="bg-gradient-to-r from-[#B27E57] to-[#C0A086] bg-clip-text text-transparent">Smart</span><br/>
             pet !
           </h1>
           <p className="text-lg md:text-xl mb-8 text-gray-700 max-w-xl mx-auto md:mx-0">
             Human–canine bonding is the relationship between dogs and humans.
           </p>
-          <a href="#" className="bg-[#5B4033] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#4A3428] transition duration-300 inline-block">Explore more &gt;</a>
+          <a href="#" className="bg-gradient-to-t from-[#5B4033] to-[#B27E57]   hover:from-[#33231b] hover:to-[#8b6344] hover:shadow-lg text-white px-6 py-3 rounded-full font-semibold hover:bg-[#4A3428]  ">Explore more &gt;</a>
         </div>
         <div className="md:w-1/2 flex justify-center md:justify-end relative">
           {/* Background shape - Replaced with provided image src */}

@@ -30,7 +30,7 @@ const Footer = () => {
               placeholder="Type your email address here"
               className="w-full sm:flex-1 p-3 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#B27E57]"
             />
-            <button className="bg-[#B27E57] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#8C6242] transition duration-300 w-full sm:w-auto">Submit now</button>
+            <button className="bg-gradient-to-t from-[#5B4033] to-[#B27E57] text-white px-4 py-2 text-sm rounded-full font-semibold hover:from-[#33231b] hover:to-[#8b6344] transition duration-300 hover:shadow-lg">Submit now</button>
           </div>
         </div>
       </div>
