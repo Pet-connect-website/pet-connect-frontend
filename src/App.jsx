@@ -16,6 +16,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import Landing from './pages/landing/landing';
 import Home from './pages/Home/Home';
+import Adoption from './pages/Adoption/adoption';
 
 function App() {
   // Temporarily set this to true for testing Home.jsx
@@ -24,9 +25,14 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/landing" element={<Landing/>} />
         {/* Default route: show Home if logged in, else Landing */}
         <Route path="/" element={isLoggedIn ? <Navigate to="/home" /> : <Landing />} />
         <Route path="/home" element={<Home />} />
+        {/* Add other routes as needed */}
+        <Route path="/adoption" element={<Adoption />} />
+        {/* <Route path="/about" element={<About />} /> */}
+        {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
     </BrowserRouter>
   );

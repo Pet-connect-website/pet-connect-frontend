@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function AdoptSection() {
   return (
-    <section className="relative flex flex-col md:flex-row justify-center items-center py-12 bg-[#e2e2e2] px-6">
+    <section className="relative flex flex-col md:flex-row justify-center items-center py-12 bg-[#e3d7cb57] px-6">
       {/* Left Arrow */}
       <button className="absolute left-4 md:left-10 p-2 rounded-full bg-white shadow hover:bg-[#d2c5bb] transition">
         <ChevronLeft className="w-6 h-6 text-[#4b2f25]" />
