@@ -162,7 +162,7 @@ const PetCard = ({ pet, onViewDetails }) => {
                 <p className="text-stone-700 text-xl mb-5"><span className="font-semibold text-stone-800">Age:</span> {pet.age}</p>
                 <button
                     onClick={() => onViewDetails(pet)}
-                    className="mt-auto bg-emerald-600 text-white py-4 px-8 rounded-xl font-bold text-2xl hover:bg-emerald-700 transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-emerald-300"
+                    className="mt-auto bg-gradient-to-t from-[#5B4033] to-[#B27E57] text-white px-4 py-2 text-sm rounded-full font-semibold hover:from-[#33231b] hover:to-[#8b6344] transition duration-300 hover:shadow-lg"
                 >
                     View Details
                 </button>
