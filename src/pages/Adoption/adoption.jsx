@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer'
+import bgPattern from '../../assets/bgw&b.png';
 // Main Adoption Component
 const Adoption = () => {
     // Pet data array
@@ -21,7 +22,7 @@ const Adoption = () => {
             age: "1 year",
             location: "Kandy",
             description: "Whiskers is a charming Siamese cat with striking blue eyes. She enjoys quiet afternoons basking in the sun and gentle cuddles.",
-            imageUrl: "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=400&q=80"
+            imageUrl: "https://cdn.pixabay.com/photo/2017/03/07/15/17/cat-2124270_1280.jpg"
         },
         {
             id: 3,
@@ -30,7 +31,7 @@ const Adoption = () => {
             age: "3 years",
             location: "Galle",
             description: "Rocky is a loyal and intelligent German Shepherd. He's well-trained and would thrive in an active home with plenty of space to run.",
-            imageUrl: "https://images.unsplash.com/photo-1518715308788-3005759c61e9?auto=format&fit=crop&w=400&q=80"
+            imageUrl: "https://cdn.pixabay.com/photo/2019/11/09/20/59/german-shepherd-4614457_1280.jpg"
         },
         {
             id: 4,
@@ -39,7 +40,7 @@ const Adoption = () => {
             age: "6 months",
             location: "Negombo",
             description: "Luna is a sweet and curious kitten, full of energy. She loves playing with toys and exploring new places.",
-            imageUrl: "https://images.unsplash.com/photo-1518715308788-3005759c61e9?auto=format&fit=crop&w=400&q=80"
+            imageUrl: "https://cdn.pixabay.com/photo/2023/07/05/04/45/european-shorthair-8107433_1280.jpg"
         },
         {
             id: 5,
@@ -48,7 +49,7 @@ const Adoption = () => {
             age: "4 years",
             location: "Jaffna",
             description: "Max is a gentle giant, a loving Labrador who enjoys swimming and being around people. He's looking for a family to call his own.",
-            imageUrl: "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=400&q=80"
+            imageUrl: "https://cdn.pixabay.com/photo/2016/02/19/15/46/labrador-retriever-1210559_1280.jpg"
         },
         {
             id: 6,
@@ -57,7 +58,7 @@ const Adoption = () => {
             age: "2 years",
             location: "Matara",
             description: "Cleo is a unique and affectionate Sphynx cat, known for her playful antics and love for warm blankets. She's a true character!",
-            imageUrl: "https://images.unsplash.com/photo-1518715308788-3005759c61e9?auto=format&fit=crop&w=400&q=80"
+            imageUrl: "https://cdn.pixabay.com/photo/2021/09/07/18/26/sphynx-cat-6604610_1280.jpg"
         },
         {
             id: 7,
@@ -66,7 +67,7 @@ const Adoption = () => {
             age: "1.5 years",
             location: "Anuradhapura",
             description: "Daisy is an energetic and cheerful Beagle. She loves sniffing out new adventures and would be a great companion for an active individual or family.",
-            imageUrl: "https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=400&q=80"
+            imageUrl: "https://cdn.pixabay.com/photo/2016/04/22/13/33/beagle-1345772_1280.jpg"
         },
         {
             id: 8,
@@ -75,7 +76,7 @@ const Adoption = () => {
             age: "3 years",
             location: "Batticaloa",
             description: "Shadow is a sleek and mysterious black cat. He's independent but enjoys a good head scratch and a cozy spot for naps.",
-            imageUrl: "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=400&q=80"
+            imageUrl: "https://cdn.pixabay.com/photo/2019/10/11/13/34/cat-4541889_1280.jpg"
         }
     ]);
 
@@ -96,29 +97,44 @@ const Adoption = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col font-inter bg-stone-100">
-            {/* Header */}
-            <Navigation/>
+        <div className="relative">
+            {/* Background Image with Opacity */}
+            <div
+                aria-hidden="true"
+                className="absolute inset-0 z-0"
+                style={{
+                    backgroundImage: `url(${bgPattern})`,
+                    backgroundRepeat: "repeat",
+                    backgroundSize: "400px 400px",
+                    opacity: 0.4, // Adjust opacity as needed
+                    pointerEvents: "none"
+                }}
+            />
+            {/* Content Overlay */}
+            <div className="relative z-10 min-h-screen flex flex-col">
+                {/* Header */}
+                <Navigation/>
 
-            {/* Main Content Area */}
-            <main className="flex-grow container mx-auto p-6 mt-12">
-                <h2 className="text-6xl font-extrabold text-center text-stone-800 mb-16 leading-tight drop-shadow-md">Discover Your New Best Friend!</h2>
+                {/* Main Content Area */}
+                <main className="flex-grow container mx-auto p-6 mt-12">
+                    <h2 className="text-6xl font-extrabold text-center text-stone-800 mb-16 leading-tight drop-shadow-md">Discover Your New Best Friend!</h2>
 
-                {/* Pet Listings Grid */}
-                <section id="pet-listings" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
-                    {pets.map(pet => (
-                        <PetCard key={pet.id} pet={pet} onViewDetails={handleViewDetails} />
-                    ))}
-                </section>
-            </main>
+                    {/* Pet Listings Grid */}
+                    <section id="pet-listings" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+                        {pets.map(pet => (
+                            <PetCard key={pet.id} pet={pet} onViewDetails={handleViewDetails} />
+                        ))}
+                    </section>
+                </main>
 
-            {/* Pet Details Modal */}
-            {isModalOpen && selectedPet && (
-                <PetModal pet={selectedPet} onClose={handleCloseModal} />
-            )}
+                {/* Pet Details Modal */}
+                {isModalOpen && selectedPet && (
+                    <PetModal pet={selectedPet} onClose={handleCloseModal} />
+                )}
 
-            {/* Footer */}
-            <Footer/>
+                {/* Footer */}
+                <Footer/>
+            </div>
         </div>
     );
 };
@@ -126,7 +142,14 @@ const Adoption = () => {
 // Pet Card Component
 const PetCard = ({ pet, onViewDetails }) => {
     return (
-        <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col transform hover:-translate-y-2 hover:scale-102 border border-stone-200">
+        <div
+            className="bg-white rounded-2xl border border-stone-200 transition-all duration-300 overflow-hidden flex flex-col transform hover:-translate-y-2 hover:scale-102"
+            style={{
+                border: "10px solid white",
+                boxSizing: "border-box",
+                boxShadow: "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px"
+            }}
+        >
             <img
                 src={pet.imageUrl}
                 alt={pet.name}
