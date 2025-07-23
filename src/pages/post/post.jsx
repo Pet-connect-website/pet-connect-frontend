@@ -311,7 +311,7 @@ return (
                                         }}
                                     />
                                 )}
-                                <div className="p-7">
+                                <div className="p-7 bg-[#c0a0862b]">
                                     <h3 className="text-3xl font-extrabold text-gray-900 mb-3 leading-tight">{post.title}</h3>
                                     <div className="flex items-center justify-between mb-3">
                                         <span className="inline-block bg-[#C0A086]/20 text-[#5B4033] text-xs font-semibold px-3 py-1 rounded-full">
