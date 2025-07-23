@@ -1,15 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-
-import Landing from './pages/landing/landing.jsx' 
+import Landing from './pages/landing/landing';
+import Home from './pages/Home/Home';
+import Adoption from './pages/Adoption/adoption';
+import Post from './pages/post/post';
+import Login from './pages/Login';     // ✅ Import Login page
+import SignUp from './pages/Signup';   // ✅ Import Signup page
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isLoggedIn] = useState(true); // Change this to false to test login flow
 
-  return <Landing/>
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* Auth pages */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+
+        {/* Main app pages */}
+        <Route path="/landing" element={<Landing />} />
+        <Route path="/" element={isLoggedIn ? <Navigate to="/home" /> : <Navigate to="/login" />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/adoption" element={<Adoption />} />
+        <Route path="/post" element={<Post />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

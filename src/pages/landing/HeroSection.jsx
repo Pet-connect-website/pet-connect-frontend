@@ -1,8 +1,22 @@
 import React from 'react';
-
+import bgPattern from '../../assets/bgw&b.png';
 function HeroSection() {
   return (
-    <section className="relative bg-[#ffffff] py-16 md:py-24 lg:py-10 overflow-hidden ">
+    <section 
+      className="relative bg-[#ffffff] py-16 md:py-24 lg:py-10 overflow-hidden "
+    >
+      {/* Background pattern with opacity */}
+      <div
+        style={{
+          backgroundImage: `url(${bgPattern})`,
+          backgroundRepeat: "repeat",
+          backgroundSize: "400px 400px",
+          opacity: 0.4,
+          pointerEvents: "none",
+        }}
+        className="absolute inset-0 w-full h-full z-0"
+        aria-hidden="true"
+      />
       <div className="container mx-auto px-6 md:px-12 lg:px-24 flex flex-col md:flex-row items-center justify-between relative z-10 gap-12">
         <div className="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-gray-900">
