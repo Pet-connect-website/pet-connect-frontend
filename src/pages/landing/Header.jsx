@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Header() {
-  // State to control the visibility of the mobile menu
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -12,7 +12,6 @@ function Header() {
       className="bg-white min-h-[56px] md:min-h-[72px] flex items-center sticky top-0 z-50 py-4"
     >
       <nav
-       
         className=" w-full px-6 md:px-12 lg:px-24 mx-0 flex justify-between items-center"
       >
         <a href="#" className="flex items-center space-x-2 text-2xl font-bold text-gray-800">
@@ -41,13 +40,22 @@ function Header() {
           >
             CONTACT US
           </a>
-          <button className="border border-[#5B4033] text-[#5B4033] px-4 py-2 text-sm rounded-full font-semibold transition duration-300 hover:text-white hover:bg-gradient-to-t hover:from-[#5B4033] hover:to-[#B27E57] hover:shadow-lg">
-            SIGN IN
-          </button>
-          <button className="bg-gradient-to-t from-[#5B4033] to-[#B27E57] text-white px-4 py-2 text-sm rounded-full font-semibold hover:from-[#33231b] hover:to-[#8b6344] transition duration-300 hover:shadow-lg">
-            REGISTER
-          </button>
+
+          {/* Updated SIGN IN */}
+          <Link to="/login">
+            <button className="border border-[#5B4033] text-[#5B4033] px-4 py-2 text-sm rounded-full font-semibold transition duration-300 hover:text-white hover:bg-gradient-to-t hover:from-[#5B4033] hover:to-[#B27E57] hover:shadow-lg">
+              SIGN IN
+            </button>
+          </Link>
+
+          {/* Updated REGISTER */}
+          <Link to="/signup">
+            <button className="bg-gradient-to-t from-[#5B4033] to-[#B27E57] text-white px-4 py-2 text-sm rounded-full font-semibold hover:from-[#33231b] hover:to-[#8b6344] transition duration-300 hover:shadow-lg">
+              REGISTER
+            </button>
+          </Link>
         </div>
+
         {/* Mobile Navigation */}
         <div className="md:hidden">
           <button
@@ -68,12 +76,20 @@ function Header() {
             <a href="#core-features" className="text-gray-600 hover:text-[#E67E22] transition duration-300 font-medium hover:border-b-2 hover:border-[#E67E22]">CORE FEATURES</a>
             <a href="#about-us" className="text-gray-600 hover:text-[#E67E22] transition duration-300 font-medium hover:border-b-2 hover:border-[#E67E22]">ABOUT US</a>
             <a href="#contact-us" className="text-gray-600 hover:text-[#E67E22] transition duration-300 font-medium hover:border-b-2 hover:border-[#E67E22]">CONTACT US</a>
-            <button className="border border-[#E67E22] text-[#E67E22] px-4 py-2 text-sm rounded-full font-semibold hover:bg-[#E67E22] hover:text-white transition duration-300 w-4/5">
-              SIGN IN
-            </button>
-            <button className="bg-[#E67E22] text-white px-4 py-2 text-sm rounded-full font-semibold hover:bg-[#D35400] transition duration-300 w-4/5">
-              REGISTER
-            </button>
+
+            {/* Updated SIGN IN */}
+            <Link to="/login" className="w-4/5">
+              <button className="border border-[#E67E22] text-[#E67E22] px-4 py-2 text-sm rounded-full font-semibold hover:bg-[#E67E22] hover:text-white transition duration-300 w-full">
+                SIGN IN
+              </button>
+            </Link>
+
+            {/* Updated REGISTER */}
+            <Link to="/signup" className="w-4/5">
+              <button className="bg-[#E67E22] text-white px-4 py-2 text-sm rounded-full font-semibold hover:bg-[#D35400] transition duration-300 w-full">
+                REGISTER
+              </button>
+            </Link>
           </div>
         </div>
       </nav>
