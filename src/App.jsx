@@ -16,6 +16,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import Landing from './pages/landing/landing';
 import Home from './pages/Home/Home';
+import News from './pages/News/News';
 
 function App() {
   // Temporarily set this to true for testing Home.jsx
@@ -27,6 +28,7 @@ function App() {
         {/* Default route: show Home if logged in, else Landing */}
         <Route path="/" element={isLoggedIn ? <Navigate to="/home" /> : <Landing />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/news" element={<News />} />
       </Routes>
     </BrowserRouter>
   );
