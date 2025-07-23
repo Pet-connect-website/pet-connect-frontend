@@ -337,6 +337,10 @@ const CommunityWall = () => {
                       required
                       />
                       <button
+                      style={{
+    boxShadow:
+      "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px"
+  }}
                       type="submit"
                       className="bg-gradient-to-r from-[#B27E57] to-[#5A4135] hover:from-[#C0A086] hover:to-[#B27E57] text-white text-sm font-medium py-2 px-4 rounded-lg transition duration-200 transform hover:scale-105 shadow-sm"
                       >
@@ -355,6 +359,10 @@ const CommunityWall = () => {
                   
         <div className="fixed bottom-4 right-4 z-50">
           <button
+          style={{
+    boxShadow:
+      "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px"
+  }}
             onClick={() => setShowPostForm(true)}
             className="bg-gradient-to-br from-[#B27E57] via-[#C0A086] to-[#E3D7CB] hover:from-[#5A4135] hover:to-[#C0A086] text-white w-16 h-16 rounded-full flex items-center justify-center text-4xl font-bold shadow-2xl transition duration-300 ease-in-out transform hover:scale-110 border-4 border-[#E3D7CB]/40"
             aria-label="Start a new discussion"
