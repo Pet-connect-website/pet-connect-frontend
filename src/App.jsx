@@ -6,6 +6,9 @@ import Home from './pages/Home/Home';
 import Adoption from './pages/Adoption/adoption';
 import Post from './pages/post/post';
 import CommunityWall from './pages/commwall/commwall';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import ChatBox from './pages/chatbox';
 function App() {
   const [isLoggedIn] = useState(true); // Change this to false to test login flow
 
@@ -23,6 +26,7 @@ function App() {
         <Route path="/adoption" element={<Adoption />} />
         <Route path="/post" element={<Post />} />
         <Route path="/commwall" element={<CommunityWall />} />
+        <Route path="/chat" element={<ChatBox />} />
         {/* <Route path="/about" element={<About />} /> */}
         {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>

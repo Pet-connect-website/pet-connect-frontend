@@ -16,7 +16,7 @@ export default function Navigation() {
         <a href="/commwall" className="text-[#4a372f] hover:text-[#bb6939]">Community</a>
         <a href="#footer" className="text-[#4a372f] hover:text-[#bb6939]">Contact Us</a>
         <a href="/news" className="text-[#4a372f] hover:text-[#bb6939]">News</a>
-        <a href="/chat" className="text-[#4a372f] hover:text-[#bb6939]">Chat</a>------ navigation.jsx
+        <a href="/chat" className="text-[#4a372f] hover:text-[#bb6939]">Chat</a>
       </div>
     </nav>
   );
