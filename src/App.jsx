@@ -18,6 +18,7 @@ import Landing from './pages/landing/landing';
 import Home from './pages/Home/Home';
 import Adoption from './pages/Adoption/adoption';
 import Post from './pages/post/post';
+import CommunityWall from './pages/commwall/commwall';
 function App() {
   // Temporarily set this to true for testing Home.jsx
   const [isLoggedIn] = useState(true); // Change to false to test Landing page
@@ -32,6 +33,7 @@ function App() {
         {/* Add other routes as needed */}
         <Route path="/adoption" element={<Adoption />} />
         <Route path="/post" element={<Post />} />
+        <Route path="/commwall" element={<CommunityWall />} />
         {/* <Route path="/about" element={<About />} /> */}
         {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>

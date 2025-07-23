@@ -34,7 +34,9 @@ export default function CommunitySection() {
         </div>
         {/* Button */}
         <div className="text-center mt-4">
-          <button className="bg-[#4b2f25] text-white px-4 py-2 rounded">Visit wall</button>
+          <a href="/commwall">
+            <button className="bg-[#4b2f25] text-white px-4 py-2 rounded">Visit wall</button>
+          </a>
           <p className="mt-2">Click here to visit wall and start discussion</p>
         </div>
       </div>
