@@ -10,6 +10,7 @@ export default function Section({ title, data }) {
           <PetCard key={idx} {...pet} />
         ))}
       </div>
+      
       {/* Pagination Dots Placeholder */}
       <div className="flex justify-center mt-10 space-x-2">
         <span className="w-3 h-3 bg-gray-500 rounded-full"></span>
