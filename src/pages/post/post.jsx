@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import Navigation from '../../components/Navigation';
+import Footer from '../../components/Footer';
+import bgPattern from '../../assets/bgw&b.png';
 // Utility function to format time difference
 const getTimeAgo = (dateString) => {
   const now = new Date();
@@ -160,162 +162,182 @@ const Post = () => {
     }
   };
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-white to-[#C0A086] flex flex-col items-center py-12 px-4 font-inter">
-      <div className="w-full max-w-4xl bg-white p-8 rounded-xl shadow-2xl border border-gray-100">
-        <h1 className="text-5xl font-extrabold text-center text-gray-900 mb-10 tracking-tight">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#5B4033] to-[#C0A086]">
-            Community Stories
-          </span>
-        </h1>
+return (
+    <>
+        <Navigation />
 
-        {/* Button to toggle the new post form */}
-        <div className="flex justify-center mb-8">
-          <button
-            onClick={() => setShowForm(!showForm)}
-            className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-[#5B4033] rounded-full group bg-gradient-to-br from-[#5B4033] to-[#C0A086] group-hover:from-[#5B4033] group-hover:to-[#C0A086] hover:text-white focus:ring-4 focus:outline-none focus:ring-[#C0A086]/50 transition-all duration-300 ease-in-out transform hover:scale-105"
-          >
-            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-full group-hover:bg-opacity-0">
-              {showForm ? 'Hide Post Form' : 'Share Your Story'}
-            </span>
-          </button>
-        </div>
-
-        {/* New Post Form - conditionally rendered */}
-        {showForm && (
-          <div className="bg-stone-50 p-8 rounded-lg shadow-inner mb-10 border border-stone-200 animate-fade-in-down">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Create a New Post</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="postTitle" className="block text-base font-medium text-gray-700 mb-2">Title</label>
-                <input
-                  type="text"
-                  id="postTitle"
-                  name="title"
-                  value={formData.title}
-                  onChange={handleChange}
-                  placeholder="A catchy title for your post..."
-                  className="mt-1 block w-full px-5 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-[#5B4033] focus:border-[#5B4033] text-base transition duration-200"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="postDescription" className="block text-base font-medium text-gray-700 mb-2">Description</label>
-                <textarea
-                  id="postDescription"
-                  name="description"
-                  value={formData.description}
-                  onChange={handleChange}
-                  rows="6"
-                  placeholder="Share your experience, tips, or news here..."
-                  className="mt-1 block w-full px-5 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-[#5B4033] focus:border-[#5B4033] text-base transition duration-200"
-                  required
-                ></textarea>
-              </div>
-              <div>
-                <label htmlFor="postCategory" className="block text-base font-medium text-gray-700 mb-2">Category</label>
-                <select
-                  id="postCategory"
-                  name="category"
-                  value={formData.category}
-                  onChange={handleChange}
-                  className="mt-1 block w-full px-5 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-[#5B4033] focus:border-[#5B4033] text-base transition duration-200 bg-white"
-                  required
-                >
-                  <option value="">Select Category</option>
-                  <option value="adoption">Adoption</option>
-                  <option value="stray">Stray</option>
-                  <option value="lost">Lost & Found</option>
-                </select>
-              </div>
-              <div>
-                <label htmlFor="postImageUrl" className="block text-base font-medium text-gray-700 mb-2">Image URL (Optional)</label>
-                <input
-                  type="url"
-                  id="postImageUrl"
-                  name="imageUrl"
-                  value={formData.imageUrl}
-                  onChange={handleChange}
-                  placeholder="e.g., https://your-image-host.com/photo.jpg"
-                  className="mt-1 block w-full px-5 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-[#5B4033] focus:border-[#5B4033] text-base transition duration-200"
-                />
-              </div>
-              <div>
-                <label htmlFor="postAuthor" className="block text-base font-medium text-gray-700 mb-2">Your Name/Alias</label>
-                <input
-                  type="text"
-                  id="postAuthor"
-                  name="author"
-                  value={formData.author}
-                  onChange={handleChange}
-                  placeholder="e.g., Pet Enthusiast"
-                  className="mt-1 block w-full px-5 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-[#5B4033] focus:border-[#5B4033] text-base transition duration-200"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full px-6 py-3 bg-gradient-to-r from-[#5B4033] to-[#C0A086] text-white font-bold rounded-full shadow-lg hover:from-[#5B4033]/90 hover:to-[#C0A086]/90 focus:outline-none focus:ring-4 focus:ring-[#C0A086]/50 transition duration-300 ease-in-out transform hover:scale-105"
-              >
-                Publish Your Story
-              </button>
-            </form>
-          </div>
-        )}
-
-        {/* Display Error Message */}
-        {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-8" role="alert">
-            <strong className="font-bold">Error!</strong>
-            <span className="block sm:inline"> {error}</span>
-          </div>
-        )}
-
-        {/* Display Posts */}
-        <div className="space-y-8">
-          {loading ? (
-            <p className="text-center text-gray-600 text-xl mt-12 p-4 bg-gray-50 rounded-lg shadow-inner">
-              Loading posts...
-            </p>
-          ) : posts.length > 0 ? (
-            posts.map(post => (
-              <div key={post._id} className="bg-white  w-  border border-gray-200 rounded-xl shadow-lg overflow-hidden transition duration-300 ease-in-out hover:shadow-xl transform hover:-translate-y-1">
-                {post.imageUrl && (
-                  <img
-                    src={post.imageUrl}
-                    alt={post.title}
-                    className="w-full h-72 object-cover object-center border-b border-gray-200"
-                    // Fallback for broken images
-                    onError={(e) => {
-                      e.target.onerror = null; // Prevents infinite loop
-                      e.target.src = `https://placehold.co/700x450/E0E0E0/666666?text=Image+Unavailable`;
-                    }}
-                  />
-                )}
-                <div className="p-7">
-                  <h3 className="text-3xl font-extrabold text-gray-900 mb-3 leading-tight">{post.title}</h3>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="inline-block bg-[#C0A086]/20 text-[#5B4033] text-xs font-semibold px-3 py-1 rounded-full">
-                      {post.category}
+        <div className="min-h-screen bg-gradient-to-br from-white to-[#C0A086] flex flex-col items-center py-12 px-4 font-inter" style={{ position: "relative" }}>
+            {/* Background image with opacity, not affecting content */}
+            <div
+                aria-hidden="true"
+                style={{
+                    backgroundImage: `url(${bgPattern})`,
+                    backgroundRepeat: "repeat",
+                    backgroundSize: "400px 400px",
+                    opacity: 0.4,
+                    pointerEvents: "none",
+                    position: "absolute",
+                    inset: 0,
+                    zIndex: 0,
+                }}
+            />
+            {/* Content with relative position and higher z-index */}
+            <div className="w-full max-w-4xl bg-white p-8 rounded-xl shadow-2xl border border-gray-100" style={{ position: "relative", zIndex: 1 }}>
+                <h1 className="text-5xl font-extrabold text-center text-gray-900 mb-10 tracking-tight">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#5B4033] to-[#C0A086]">
+                        Community Stories
                     </span>
-                    <p className="text-sm text-gray-500">
-                      Posted by <span className="font-medium text-[#5B4033]">{post.author || 'Anonymous'}</span>
-                      {' • '}
-                      <span className="font-medium">{post.createdAt ? getTimeAgo(post.createdAt) : 'just now'}</span>
-                    </p>
-                  </div>
-                  <p className="text-gray-700 leading-relaxed mb-5 text-lg">{post.description}</p>
+                </h1>
+
+                {/* Button to toggle the new post form */}
+                <div className="flex justify-center mb-8">
+                    <button
+                        onClick={() => setShowForm(!showForm)}
+                        className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-[#5B4033] rounded-full group bg-gradient-to-br from-[#5B4033] to-[#C0A086] group-hover:from-[#5B4033] group-hover:to-[#C0A086] hover:text-white focus:ring-4 focus:outline-none focus:ring-[#C0A086]/50 transition-all duration-300 ease-in-out transform hover:scale-105"
+                    >
+                        <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-full group-hover:bg-opacity-0">
+                            {showForm ? 'Hide Post Form' : 'Share Your Story'}
+                        </span>
+                    </button>
                 </div>
-              </div>
-            ))
-          ) : (
-            <p className="text-center text-gray-600 text-xl mt-12 p-4 bg-gray-50 rounded-lg shadow-inner">
-              No stories yet. Be the first to share something amazing!
-            </p>
-          )}
+
+                {/* New Post Form - conditionally rendered */}
+                {showForm && (
+                    <div className="bg-stone-50 p-8 rounded-lg shadow-inner mb-10 border border-stone-200 animate-fade-in-down">
+                        <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Create a New Post</h2>
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            <div>
+                                <label htmlFor="postTitle" className="block text-base font-medium text-gray-700 mb-2">Title</label>
+                                <input
+                                    type="text"
+                                    id="postTitle"
+                                    name="title"
+                                    value={formData.title}
+                                    onChange={handleChange}
+                                    placeholder="A catchy title for your post..."
+                                    className="mt-1 block w-full px-5 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-[#5B4033] focus:border-[#5B4033] text-base transition duration-200"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="postDescription" className="block text-base font-medium text-gray-700 mb-2">Description</label>
+                                <textarea
+                                    id="postDescription"
+                                    name="description"
+                                    value={formData.description}
+                                    onChange={handleChange}
+                                    rows="6"
+                                    placeholder="Share your experience, tips, or news here..."
+                                    className="mt-1 block w-full px-5 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-[#5B4033] focus:border-[#5B4033] text-base transition duration-200"
+                                    required
+                                ></textarea>
+                            </div>
+                            <div>
+                                <label htmlFor="postCategory" className="block text-base font-medium text-gray-700 mb-2">Category</label>
+                                <select
+                                    id="postCategory"
+                                    name="category"
+                                    value={formData.category}
+                                    onChange={handleChange}
+                                    className="mt-1 block w-full px-5 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-[#5B4033] focus:border-[#5B4033] text-base transition duration-200 bg-white"
+                                    required
+                                >
+                                    <option value="">Select Category</option>
+                                    <option value="adoption">Adoption</option>
+                                    <option value="stray">Stray</option>
+                                    <option value="lost">Lost & Found</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label htmlFor="postImageUrl" className="block text-base font-medium text-gray-700 mb-2">Image URL (Optional)</label>
+                                <input
+                                    type="url"
+                                    id="postImageUrl"
+                                    name="imageUrl"
+                                    value={formData.imageUrl}
+                                    onChange={handleChange}
+                                    placeholder="e.g., https://your-image-host.com/photo.jpg"
+                                    className="mt-1 block w-full px-5 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-[#5B4033] focus:border-[#5B4033] text-base transition duration-200"
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="postAuthor" className="block text-base font-medium text-gray-700 mb-2">Your Name/Alias</label>
+                                <input
+                                    type="text"
+                                    id="postAuthor"
+                                    name="author"
+                                    value={formData.author}
+                                    onChange={handleChange}
+                                    placeholder="e.g., Pet Enthusiast"
+                                    className="mt-1 block w-full px-5 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-[#5B4033] focus:border-[#5B4033] text-base transition duration-200"
+                                />
+                            </div>
+                            <button
+                                type="submit"
+                                className="w-full px-6 py-3 bg-gradient-to-r from-[#5B4033] to-[#C0A086] text-white font-bold rounded-full shadow-lg hover:from-[#5B4033]/90 hover:to-[#C0A086]/90 focus:outline-none focus:ring-4 focus:ring-[#C0A086]/50 transition duration-300 ease-in-out transform hover:scale-105"
+                            >
+                                Publish Your Story
+                            </button>
+                        </form>
+                    </div>
+                )}
+
+                {/* Display Error Message */}
+                {error && (
+                    <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-8" role="alert">
+                        <strong className="font-bold">Error!</strong>
+                        <span className="block sm:inline"> {error}</span>
+                    </div>
+                )}
+
+                {/* Display Posts */}
+                <div className="space-y-8">
+                    {loading ? (
+                        <p className="text-center text-gray-600 text-xl mt-12 p-4 bg-gray-50 rounded-lg shadow-inner">
+                            Loading posts...
+                        </p>
+                    ) : posts.length > 0 ? (
+                        posts.map(post => (
+                            <div key={post._id} className="bg-white  w-  border border-gray-200 rounded-xl shadow-lg overflow-hidden transition duration-300 ease-in-out hover:shadow-xl transform hover:-translate-y-1">
+                                {post.imageUrl && (
+                                    <img
+                                        src={post.imageUrl}
+                                        alt={post.title}
+                                        className="w-full h-72 object-cover object-center border-b border-gray-200"
+                                        // Fallback for broken images
+                                        onError={(e) => {
+                                            e.target.onerror = null; // Prevents infinite loop
+                                            e.target.src = `https://placehold.co/700x450/E0E0E0/666666?text=Image+Unavailable`;
+                                        }}
+                                    />
+                                )}
+                                <div className="p-7">
+                                    <h3 className="text-3xl font-extrabold text-gray-900 mb-3 leading-tight">{post.title}</h3>
+                                    <div className="flex items-center justify-between mb-3">
+                                        <span className="inline-block bg-[#C0A086]/20 text-[#5B4033] text-xs font-semibold px-3 py-1 rounded-full">
+                                            {post.category}
+                                        </span>
+                                        <p className="text-sm text-gray-500">
+                                            Posted by <span className="font-medium text-[#5B4033]">{post.author || 'Anonymous'}</span>
+                                            {' • '}
+                                            <span className="font-medium">{post.createdAt ? getTimeAgo(post.createdAt) : 'just now'}</span>
+                                        </p>
+                                    </div>
+                                    <p className="text-gray-700 leading-relaxed mb-5 text-lg">{post.description}</p>
+                                </div>
+                            </div>
+                        ))
+                    ) : (
+                        <p className="text-center text-gray-600 text-xl mt-12 p-4 bg-gray-50 rounded-lg shadow-inner">
+                            No stories yet. Be the first to share something amazing!
+                        </p>
+                    )}
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+        <Footer />
+    </>
+);
 };
 
 export default Post;
