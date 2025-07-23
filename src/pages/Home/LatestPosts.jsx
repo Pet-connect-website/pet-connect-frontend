@@ -2,7 +2,7 @@ import React from 'react';
 import lostDog from '../../assets/post-lost.png';
 import woundedPuppy from '../../assets/post-wounded.png';
 import adoptionCat from '../../assets/tanalCat.jpg';
-
+import Post from '../post/post';
 export default function LatestPosts() {
   const posts = [
     {
@@ -28,6 +28,11 @@ export default function LatestPosts() {
     },
   ];
 
+  const handleExplore = () => {
+    // All types go to the same page, e.g., /posts
+    window.location.href = '/post';
+  };
+
   return (
     <section className="py-10 px-4 text-center bg-[#d5c8bb]">
       <h2 className="text-3xl font-bold mb-6">Latest posts</h2>
@@ -39,7 +44,12 @@ export default function LatestPosts() {
             <p>{post.pet}</p>
             <p className="text-sm text-gray-600">{post.time}</p>
             <p className="text-sm text-gray-600">{post.location}</p>
-            <button className="mt-3 bg-[#4b2f25] text-white text-sm px-3 py-1 rounded">Explore more</button>
+            <button
+              className="mt-3 bg-[#4b2f25] text-white text-sm px-3 py-1 rounded"
+              onClick={() => handleExplore(post)}
+            >
+              Explore more
+            </button>
           </div>
         ))}
       </div>
