@@ -155,26 +155,26 @@ const CommunityWall = () => {
     <>
     <Navigation />
     <div className="min-h-screen font-inter text-[#5A4135] flex flex-col items-center py-8 px-4 sm:px-6 lg:px-8 relative">
-      {/* Background Image Layer - only for main content, not Navigation or Footer */}
-      <div
-        aria-hidden="true"
-        style={{
-          backgroundImage: `url(${bgPattern})`,
-          backgroundRepeat: "repeat",
-          backgroundSize: "400px 400px",
-          opacity: 0.4,
-          pointerEvents: "none",
-          position: "fixed",
-          inset: 0,
-          zIndex: -1,
-          top: 0,
-          left: 0,
-          width: "100vw",
-          height: "100vh",
-        }}
-        className="main-bg-pattern"
-      />
-      {/* Foreground Content */}
+      
+        <div
+          aria-hidden="true"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${bgPattern})`,
+            backgroundRepeat: "repeat",
+            backgroundSize: "400px 400px",
+            opacity: 0.4,
+            pointerEvents: "none",
+            position: "fixed",
+            inset: 0,
+            zIndex: -1,
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+          }}
+          className="main-bg-pattern"
+        />
+        {/* Foreground Content */}
       
       <div className="relative z-10 w-full flex flex-col items-center">
         
@@ -302,7 +302,14 @@ const CommunityWall = () => {
                       <div className="space-y-3 mb-4">
                       {post.comments.length > 0 ? (
                       post.comments.map((comment) => (
-                        <div key={comment.id} className="bg-gray-100 p-3 rounded-lg text-sm border border-gray-200">
+                        <div key={comment.id}
+                        style={{
+                        boxShadow:
+                        "rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em",
+                      
+                      }}
+                      
+                        className="bg-gray-100 p-3 rounded-lg text-sm border border-gray-200">
                         <span className="font-semibold text-[#B27E57]">{comment.userName}:</span> {comment.text}
                         </div>
                       ))
@@ -320,6 +327,9 @@ const CommunityWall = () => {
                       className="flex gap-2"
                       >
                       <input
+                      style={{
+                        boxShadow: "rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset",
+                      }}
                       type="text"
                       name="commentText"
                       placeholder="Add a comment..."
