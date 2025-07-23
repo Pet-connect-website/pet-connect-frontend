@@ -19,6 +19,7 @@ import Home from './pages/Home/Home';
 import Adoption from './pages/Adoption/adoption';
 import Post from './pages/post/post';
 import CommunityWall from './pages/commwall/commwall';
+import ChatBox from './pages/chatbox';
 function App() {
   // Temporarily set this to true for testing Home.jsx
   const [isLoggedIn] = useState(true); // Change to false to test Landing page
@@ -36,6 +37,8 @@ function App() {
         <Route path="/commwall" element={<CommunityWall />} />
         {/* <Route path="/about" element={<About />} /> */}
         {/* <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/chat" element={<ChatBox />} />
+        {/* Redirect any unknown routes to Home */}
       </Routes>
     </BrowserRouter>
   );
