@@ -117,7 +117,7 @@ const Adoption = () => {
 
                 {/* Main Content Area */}
                 <main className="flex-grow container mx-auto p-6 mt-12">
-                    <h2 className="text-6xl font-extrabold text-center text-stone-800 mb-16 leading-tight drop-shadow-md">Discover Your New Best Friend!</h2>
+                    <h2 className=" py-4  text-6xl font-extrabold text-center text-stone-800 mb-16 leading-tight drop-shadow-md">Discover Your New Best Friend!</h2>
 
                     {/* Pet Listings Grid */}
                     <section id="pet-listings" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
@@ -161,6 +161,10 @@ const PetCard = ({ pet, onViewDetails }) => {
                 <p className="text-stone-700 text-xl mb-2"><span className="font-semibold text-stone-800">Breed:</span> {pet.breed}</p>
                 <p className="text-stone-700 text-xl mb-5"><span className="font-semibold text-stone-800">Age:</span> {pet.age}</p>
                 <button
+                    style={{
+    boxShadow:
+      "rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px"
+  }}
                     onClick={() => onViewDetails(pet)}
                     className="mt-auto bg-gradient-to-t from-[#5B4033] to-[#B27E57] text-white px-4 py-2 text-sm rounded-full font-semibold hover:from-[#33231b] hover:to-[#8b6344] transition duration-300 hover:shadow-lg"
                 >

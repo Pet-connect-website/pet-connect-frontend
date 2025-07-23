@@ -5,8 +5,10 @@ import Landing from './pages/landing/landing';
 import Home from './pages/Home/Home';
 import Adoption from './pages/Adoption/adoption';
 import Post from './pages/post/post';
-import Login from './pages/Login';     // ✅ Import Login page
-import SignUp from './pages/Signup';   // ✅ Import Signup page
+
+import Login from './pages/Login';       // ✅ Your addition
+import SignUp from './pages/Signup';     // ✅ Your addition
+import CommunityWall from './pages/commwall/commwall'; // ✅ From upstream
 
 function App() {
   const [isLoggedIn] = useState(true); // Change this to false to test login flow
@@ -24,6 +26,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/adoption" element={<Adoption />} />
         <Route path="/post" element={<Post />} />
+        <Route path="/commwall" element={<CommunityWall />} />  {/* ✅ Added from upstream */}
       </Routes>
     </BrowserRouter>
   );
