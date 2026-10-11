@@ -12,7 +12,7 @@ import CommunityWall from './pages/commwall/commwall';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import ChatBox from './pages/chatbox';
-import News from './pages/News';
+import News from './pages/News/News';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
