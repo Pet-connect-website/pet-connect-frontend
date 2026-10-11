@@ -8,7 +8,7 @@ The project includes a React frontend and an Express/MongoDB backend. Visitors c
 
 ## Related Repositories
 
-- [PetConnect Backend](https://github.com/Pet-connect-website/pet-connect-backend/commits/master/)
+- [PetConnect Backend](https://github.com/Pet-connect-website/pet-connect-backend)
 
 ## Features
 
